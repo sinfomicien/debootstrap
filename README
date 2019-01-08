@@ -34,6 +34,19 @@ Of course you will need to execute the second stage as root to finish the bootst
    (on foreign hardware)
    /debootstrap/debootstrap --second-stage
 
+Note Mac OS X
+-------------
+
+  * You need to grab the git repository (on the osx branch)
+    Then install with :
+    DSTDIR=/usr/local/debootstrap make install
+  * You need to have a valid sha256sum program. For example:
+    echo '#!/bin/bash
+
+shasum -a 256 $@' > /usr/local/bin/sha256sum
+    chmod 755 /usr/local/bin/sha256sum
+  * You need to install GNU tar (via brew)
+
 
 Future
 ------
