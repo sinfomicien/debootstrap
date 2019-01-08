@@ -1,3 +1,22 @@
+############################################################### macosxutils
+
+tar () {
+  if [ "$1" == "-k" ]; then
+    gtar --keep-directory-symlink $2 $3 $4 $5
+  else
+    gtar $@
+  fi
+}
+
+mknod () {
+  if [ "$1" == "-m" ]; then
+    /sbin/mknod $3 $4 $5 $6
+    chmod $2 $3
+  else
+    /sbin/mknod $@
+  fi
+}
+
 ############################################################### smallutils
 
 smallyes() {
