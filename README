@@ -37,16 +37,35 @@ Of course you will need to execute the second stage as root to finish the bootst
 Note Mac OS X
 -------------
 
-  * You need to grab the git repository (on the osx branch)
+  * You need to grab the git repository
+
+    git clone git@github.com:sinfomicien/debootstrap.git
+
+    Then switch on the OS X branch :
+
+    git fetch
+    git checkout add-osx-modification
+
     Then install with :
-    DSTDIR=/usr/local/debootstrap make install
+
+    sudo DESTDIR=/usr/local/debootstrap make install
+
   * You need to have a valid sha256sum program. For example:
+
     echo '#!/bin/bash
 
 shasum -a 256 $@' > /usr/local/bin/sha256sum
     chmod 755 /usr/local/bin/sha256sum
+
   * You need to install GNU tar (via brew)
 
+    brew install gnu-tar
+
+  * Create an arch file to the good Architecture you want the image to be on
+
+    sudo touch /usr/local/debootstrap/usr/share/debootstrap/arch
+    sudo chmod 666 /usr/local/debootstrap/usr/share/debootstrap/arch
+    echo 'amd64' > /usr/local/debootstrap/usr/share/debootstrap/arch
 
 Future
 ------
